@@ -1,6 +1,6 @@
 package dexObfuscator;
 
-public class DexMapItem {
+public class DexMapItem extends Configuration {
 	private short type = 0;
 	private short unused = 0;
 	private int size = 0;
