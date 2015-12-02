@@ -1,4 +1,4 @@
-package dexconfuse;
+package dexObfuscator;
 
 import java.io.RandomAccessFile;
 

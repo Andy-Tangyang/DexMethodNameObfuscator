@@ -1,4 +1,4 @@
-package dexconfuse;
+package dexObfuscator;
 
 public abstract class conf {
 

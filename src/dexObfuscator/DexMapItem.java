@@ -1,4 +1,4 @@
-package dexconfuse;
+package dexObfuscator;
 
 public class DexMapItem {
 	private short type = 0;

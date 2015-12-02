@@ -1,4 +1,4 @@
-package dexconfuse;
+package dexObfuscator;
 
 
 import java.io.File;
@@ -14,7 +14,7 @@ public class confuse {
 	static int getNum (byte[] buffer){
 		int r = 0;
 		int lens = buffer.length;
-		for(int i = lens-1;i > 0;i--){
+		for(int i = lens-1;i >= 0;i--){
 			r <<= 8;
 			r = r + (((int)buffer[i]) & 0xff);
 		}
