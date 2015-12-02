@@ -2,7 +2,7 @@ package dexObfuscator;
 
 import java.io.RandomAccessFile;
 
-public class DexHeader {
+public class DexHeader extends Configuration{
 	public String magic = null;
 	public int checksum = 0;
 	public byte[] signature = new byte[20];
@@ -26,9 +26,11 @@ public class DexHeader {
     public int classDefsOff = 0;
     public int dataSize = 0;
     public int dataOff = 0;
-	public DexHeader(RandomAccessFile randomAccessFile) throws Exception{
+	public DexHeader() throws Exception{
 		// TODO Auto-generated constructor stub
+		RandomAccessFile randomAccessFile = getRandomAccessFile();
 		byte[] buffer = new byte[8];
+		randomAccessFile = getRandomAccessFile();
 		randomAccessFile.read(buffer,0,8);
 		this.magic = new String(buffer);
 		

@@ -2,21 +2,31 @@ package dexObfuscator;
 
 import java.io.RandomAccessFile;
 
-public class DexFile {
+public class DexFile extends Configuration {
+	public DexFile(DexFile dexFile, RandomAccessFile randomAccessFile) {
+		super(dexFile, randomAccessFile);
+		// TODO Auto-generated constructor stub
+	}
+	public DexFile(){};
+	
 	DexHeader dexHeader = null;
 	DexMapList dexMapList = null;
-	
-	public DexFile(RandomAccessFile randomAccessFile) throws Exception {
-		// TODO Auto-generated constructor stub
-		readHeader(randomAccessFile);
-		readMap(randomAccessFile,this.dexHeader);
+
+
+	public void readHeader() throws Exception {
+		this.dexHeader = new DexHeader();
 	}
 	
-	public void readHeader(RandomAccessFile randomAccessFile) throws Exception {
-		this.dexHeader = new DexHeader(randomAccessFile);
+	public void readMap() throws Exception{
+		this.dexMapList = new DexMapList();
 	}
 	
-	public void readMap(RandomAccessFile randomAccessFile,DexHeader dexHeader) throws Exception{
-		this.dexMapList = new DexMapList(randomAccessFile,this.dexHeader);
+	public void read() throws Exception{
+		this.readHeader();
+		this.readMap();
+	}
+	
+	public DexHeader getDexHeader() {
+		return this.dexHeader;
 	}
 }

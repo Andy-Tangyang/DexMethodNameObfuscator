@@ -3,14 +3,16 @@ package dexObfuscator;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 
-public class DexMapList {
+public class DexMapList extends Configuration{
 	
 	int mapSize = 0;
 	byte[] buffer = null;
 	ArrayList<DexMapItem> arrayList;
 	
-	public DexMapList(RandomAccessFile randomAccessFile,DexHeader dexHeader) throws Exception{
+	public DexMapList() throws Exception{
 		// TODO Auto-generated constructor stub
+		RandomAccessFile randomAccessFile = getRandomAccessFile();
+		DexHeader dexHeader = getDexFile().getDexHeader();
 		randomAccessFile.seek(dexHeader.mapOff);
 		buffer = new byte[4];
 		randomAccessFile.read(buffer,0,4);
